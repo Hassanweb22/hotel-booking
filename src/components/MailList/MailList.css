@@ -1,0 +1,61 @@
+.mailList {
+    background: var(--color-bg);
+    padding: 4rem;
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 100%;
+}
+
+h1.mlTitle {
+    /* color: white; */
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+}
+
+p.mlDesc {
+    font-size: 16px;
+    margin-bottom: 1rem;
+    letter-spacing: 0.03rem;
+}
+
+.mlEmail {
+    display: flex;
+    gap: 5px;
+}
+
+.mlEmail>input {
+    background: white;
+    font-size: 16px;
+    padding: 15px 10px;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.362);
+    border-radius: 4px;
+    min-width: 320px;
+    color: gray;
+}
+
+.mlEmail>input:focus {
+    box-shadow: 0 0 1pt 1pt #d3d3d3;
+}
+
+.mlEmail>button {
+    background: var(--color-btn);
+    border: 2px solid var(--color-btn-border);
+    border-radius: 4px;
+    color: white;
+    outline: none;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px 5px;
+    min-width: 120px;
+}
+
+.mlEmail>button:hover,
+.mlEmail>button:focus {
+    box-shadow: inset 10.5em 0 0 0 var(--color-btn-border);
+}

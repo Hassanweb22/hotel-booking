@@ -1,0 +1,30 @@
+.listContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ;
+}
+
+.listWrapper {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.listSearch {
+    background: var(--color-yellow);
+    padding: 10px;
+    flex: 1;
+    border-radius: 5px;
+    position: sticky;
+    top: 1.6%;
+    z-index: 4;
+}
+
+.listResult {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}

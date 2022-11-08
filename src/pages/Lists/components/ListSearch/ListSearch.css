@@ -1,0 +1,98 @@
+.listSearch>h2.listTitle {
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.listSearch>.listItem {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+}
+
+.listSearch>.listItem:not(:last-child) {
+    margin-bottom: 0.8rem;
+}
+
+.listSearch>.listItem>label {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.listSearch>.listItem>input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid rgba(128, 128, 128, 0.573);
+    border-radius: 4px;
+    font-size: 15px;
+    height: 35px;
+}
+
+.listSearch>.listItem>input::placeholder {
+    color: rgba(128, 128, 128, 0.654);
+}
+
+.listSearch>.listItem>span {
+    width: 100%;
+    display: block;
+    padding: 5px;
+    border: 1px solid rgba(128, 128, 128, 0.573);
+    border-radius: 4px;
+    background: white;
+    font-size: 14px;
+}
+
+.listSearch>.listItem>.dateRange {
+    position: absolute;
+    top: 58px;
+    border: 2px solid lightgray;
+    border-top: 0px;
+    border-radius: 4px;
+    z-index: 5;
+
+}
+
+.listSearch>.listItem>.optionWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.listItem>.optionWrapper>.optionItem {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.optionWrapper>.optionItem>label {
+    font-size: 14px;
+}
+
+.optionWrapper>.optionItem>input {
+    font-size: 14px;
+    border: 1px solid rgba(128, 128, 128, 0.545);
+    padding: 5px;
+    height: 30px;
+    width: 65px;
+}
+
+input:focus {
+    border: 1px solid rgba(128, 128, 128, 0.978);
+}
+
+.listSearch>.listItem>button {
+    width: 100%;
+    padding: 10px;
+    background: var(--color-btn);
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border: none;
+    border-radius: 4px;
+}
+
+.listSearch>.listItem>button:hover {
+    filter: brightness(1.1);
+}

@@ -1,0 +1,150 @@
+.hotelContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.hotelWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.2rem;
+}
+
+.hTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+
+.hTop>.hTopLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hTop>.hTopLeft>h1.hTitle {
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.hTop>.hTopLeft>.hLocInfo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hTop>.hTopLeft>.hLocInfo>* {
+    font-size: 14px;
+}
+
+.hTop>.hTopLeft>p.hLocDistance {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-txt-blue);
+}
+
+.hTop>.hTopLeft>p.hPriceHighlight {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-txt-green);
+}
+
+.hTop>.hTopRight>button {
+    font-size: 14px;
+    background: var(--color-btn);
+    padding: 10px;
+    min-width: 135px;
+    text-transform: capitalize;
+    border-radius: 4px;
+    color: #FFF;
+    outline: none;
+    border: 1px solid var(--color-btn);
+    cursor: pointer;
+}
+
+.imageWrapper {
+    display: flex;
+    /* gap: 10px; */
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.imageWrapper img {
+    width: 33%;
+    padding: 0 5px 5px 0px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border-radius: 4px;
+}
+
+.imageWrapper img:hover {
+    transform: scale(1.03);
+}
+
+.hDetails {
+    display: flex;
+    justify-content: space-between;
+    gap: 2em;
+    align-items: flex-start;
+}
+
+.hDetails>.hDetilsinfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.hDetilsinfo>h2.hDetailsTitle {
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.hDetilsinfo>p.hDetailsDesc {
+    font-size: 15px;
+}
+
+.hDetailsPrice {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.3rem;
+    background: #e4f8ff;
+    padding: 15px;
+    min-width: 260px;
+    border-radius: 4px;
+}
+
+.hDetailsPrice>h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.681)
+}
+
+.hDetailsPrice>p.priceDetails {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.hDetailsPrice>p.priceRoom {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.hDetailsPrice>p.priceRoom>span {
+    font-weight: normal;
+}
+
+.hDetailsPrice>button.reserve {
+    font-size: 14px;
+    background: var(--color-btn);
+    padding: 10px 5px;
+    width: 100%;
+    text-transform: capitalize;
+    border-radius: 4px;
+    color: #FFF;
+    outline: none;
+    border: 1px solid var(--color-btn);
+    cursor: pointer;
+}

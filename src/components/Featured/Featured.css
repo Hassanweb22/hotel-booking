@@ -1,0 +1,72 @@
+.featured {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.featuredItem {
+    flex: 1;
+    /* width: 100%; */
+    height: 240px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.imageContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    transform: scale(1.06);
+    transition: all 0.4s ease;
+}
+
+.imageContainer img {
+    width: 100%;
+    height: 100%;
+}
+
+.imageContainer .after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    color: #FFF;
+    transition: background 2s ease;
+}
+
+.imageContainer:hover .after {
+    display: block;
+    background: rgba(0, 0, 0, .2);
+}
+
+.featuredTitle {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: white;
+}
+
+.featuredTitle h1 {
+    font-size: 30px;
+}
+
+.featuredTitle p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.featuredItem:hover .imageContainer {
+    transform: scale(1);
+    background: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73))
+}

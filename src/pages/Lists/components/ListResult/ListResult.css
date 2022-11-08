@@ -1,0 +1,149 @@
+.lResultCard {
+    width: 100%;
+    padding: 0.65rem;
+    border: 2px solid #e7e9eb;
+    border-radius: 3px;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.cardImg {
+    width: 200px;
+    /* height: 250px; */
+    position: relative;
+    min-width: 200px;
+    /* height: 100%; */
+}
+
+.cardImg img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 1rem;
+    flex: 1;
+}
+
+.cardInfo>.cardLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 350px;
+}
+
+.cardLeft>h2.title {
+    color: var(--color-txt-blue);
+    font-weight: 700;
+}
+
+.cardLeft>p {
+    font-size: 14px;
+}
+
+.cardLeft>button.free {
+    background: var(--color-txt-green);
+    font-size: 12px;
+    padding: 2px;
+    color: #FFF;
+    font-weight: 600;
+    border: 1px solid var(--color-txt-green);
+    border-radius: 4px;
+    outline: none;
+}
+
+.cardLeft>.exp {
+    font-weight: bold;
+}
+
+.cardLeft>.desc {
+    line-height: 1.5em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.cardLeft>.cancel {
+    font-weight: bold;
+    color: var(--color-txt-green);
+    padding: 1px 5px;
+    border-radius: 4px;
+    background: #027f2417;
+}
+
+.cardLeft>.suggestion {
+    font-size: 13px;
+    color: var(--color-txt-green);
+}
+
+.cardRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.cardRight>.rating {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 1rem;
+    flex: 1;
+}
+
+.cardRight>.rating>p.rText {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.cardRight>.rating>span.rBox {
+    display: block;
+    background: var(--color-bg);
+    width: 30px;
+    padding: 3px 2px;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    border-radius: 4px;
+}
+
+.cardRight>.price_tax {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.8rem;
+}
+
+.cardRight>.price_tax>p.price {
+    font-size: 20px;
+    letter-spacing: 0.1rem;
+    font-weight: 500;
+}
+
+.cardRight>.price_tax>p.taxDesc {
+    font-size: 12px;
+    color: #999;
+}
+
+.cardRight>.price_tax>button {
+    font-size: 14px;
+    background: var(--color-btn);
+    padding: 10px;
+    min-width: 135px;
+    text-transform: capitalize;
+    border-radius: 4px;
+    color: #FFF;
+    outline: none;
+    border: 1px solid var(--color-btn);
+    cursor: pointer;
+}
