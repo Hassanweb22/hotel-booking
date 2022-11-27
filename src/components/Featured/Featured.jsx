@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import useFetch from '../../hooks/useFetch'
 import "./Featured.css"
 
 const Featured = () => {
+
+    const { loading, error, data } = useFetch("/hotels/countByCity?cities=berlin,madrid,london")
+
+    useEffect(() => {
+        console.log({ loading, error, data })
+    }, [loading, error, data])
+
+
     return (
         <div className='featured limitWidth'>
             <div className="featuredItem">
@@ -10,8 +19,8 @@ const Featured = () => {
                     <div className="after"></div>
                 </div>
                 <div className="featuredTitle">
-                    <h1>Dublin</h1>
-                    <p>122 properties</p>
+                    <h1>Berlin</h1>
+                    <p>{data[0]} properties</p>
                 </div>
             </div>
             <div className="featuredItem">
@@ -20,8 +29,8 @@ const Featured = () => {
                     <div className="after"></div>
                 </div>
                 <div className="featuredTitle">
-                    <h1>Austin</h1>
-                    <p>332 properties</p>
+                    <h1>Madrid</h1>
+                    <p>{data[1]} properties</p>
                 </div>
             </div>
             <div className="featuredItem">
@@ -30,8 +39,8 @@ const Featured = () => {
                     <div className="after"></div>
                 </div>
                 <div className="featuredTitle">
-                    <h1>Amsterdam</h1>
-                    <p>522 properties</p>
+                    <h1>London</h1>
+                    <p>{data[2]} properties</p>
                 </div>
             </div>
         </div>

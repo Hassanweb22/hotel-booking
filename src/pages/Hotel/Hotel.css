@@ -113,6 +113,7 @@
     background: #e4f8ff;
     padding: 15px;
     min-width: 260px;
+    max-width: 290px;
     border-radius: 4px;
 }
 

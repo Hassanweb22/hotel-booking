@@ -1,5 +1,5 @@
 import { format } from 'date-fns'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { DateRange } from 'react-date-range'
 import "./ListSearch.css"
 
@@ -7,19 +7,11 @@ const ListSearch = ({
     state,
     setState,
     options,
-    setOptions,
-    locState,
     hadnleOptionsChange,
+    fetchData
 }) => {
 
     const [showDate, setShowDate] = useState(false)
-
-    useEffect(() => {
-        if (locState) {
-            setState({ ...state, ...locState.state })
-            setOptions({ ...options, ...locState.options })
-        }
-    }, [locState])
 
     return (
         <div className="listSearch">
@@ -60,7 +52,7 @@ const ListSearch = ({
                     <div className="optionItem">
                         <label htmlFor="minPrice">Min Price (per night)</label>
                         <input
-                            id="minPrice"
+                            name="minPrice"
                             type="number"
                             min={0}
                             value={options.minPrice}
@@ -70,7 +62,7 @@ const ListSearch = ({
                     <div className="optionItem">
                         <label htmlFor="maxPrice">Man Price (per night)</label>
                         <input
-                            id="maxPrice"
+                            name="maxPrice"
                             type="number"
                             min={0}
                             value={options.maxPrice}
@@ -80,7 +72,7 @@ const ListSearch = ({
                     <div className="optionItem">
                         <label htmlFor="adult">Adult</label>
                         <input
-                            id='adult'
+                            name='adult'
                             type="number"
                             min={0}
                             value={options.adult}
@@ -90,7 +82,7 @@ const ListSearch = ({
                     <div className="optionItem">
                         <label htmlFor="children">Children</label>
                         <input
-                            id='children'
+                            name='children'
                             type="number"
                             min={0}
                             value={options.children}
@@ -100,7 +92,7 @@ const ListSearch = ({
                     <div className="optionItem">
                         <label htmlFor="room">Room</label>
                         <input
-                            id='room'
+                            name='room'
                             type="number"
                             min={0}
                             value={options.room}
@@ -110,7 +102,7 @@ const ListSearch = ({
                 </div>
             </div>
             <div className='listItem'>
-                <button>Search</button>
+                <button onClick={_ => fetchData()}>Search</button>
             </div>
         </div>
     )

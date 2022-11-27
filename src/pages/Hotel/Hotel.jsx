@@ -6,6 +6,8 @@ import MailList from '../../components/MailList/MailList'
 import Footer from '../../components/Footer/Footer'
 import "./Hotel.css"
 import ImageModal from './components/ImageModal'
+import useFetch from '../../hooks/useFetch'
+import { useLocation, useParams } from 'react-router-dom'
 
 const Hotel = () => {
 
@@ -30,6 +32,7 @@ const Hotel = () => {
         },
     ];
 
+    const params = useParams()
     const [slideNo, setSlideNo] = useState(null)
     const [openSlide, setOpenSlide] = useState(false)
 
@@ -38,64 +41,60 @@ const Hotel = () => {
         setOpenSlide(true)
     }
 
+    const { loading, error, data, fetchData } = useFetch(`/hotels/find/${params.id}`)
+
+
+
     return (
         <div>
             <Navbar />
             <Header type="hotelList" />
             <div className="hotelContainer" style={{ overflow: openSlide ? "hidden" : "auto" }}>
-                {openSlide &&
+                {openSlide && data.photos &&
                     <ImageModal
                         slideNo={slideNo}
                         setSlideNo={setSlideNo}
                         openSlide={openSlide}
                         setOpenSlide={setOpenSlide}
-                        photos={photos}
+                        photos={data.photos}
                     />
                 }
-                <div className="hotelWrapper limitWidth">
-                    <div className="hTop">
-                        <div className='hTopLeft'>
-                            <h1 className="hTitle">Tower Street Apartments</h1>
-                            <div className="hLocInfo">
-                                <MdLocationOn />
-                                <p> Elton St 125 New york</p>
+                {loading && data ? "Loading..." :
+                    <div className="hotelWrapper limitWidth">
+                        <div className="hTop">
+                            <div className='hTopLeft'>
+                                <h1 className="hTitle">{data.name}</h1>
+                                <div className="hLocInfo">
+                                    <MdLocationOn />
+                                    <p>{data.address}</p>
+                                </div>
+                                <p className='hLocDistance'>Excellent location – ${data.distance}m from center</p>
+                                <p className='hPriceHighlight'>Book a stay over ${data.cheapestPrice} at this property and get a free airport taxi</p>
                             </div>
-                            <p className='hLocDistance'>Excellent location – 500m from center</p>
-                            <p className='hPriceHighlight'>Book a stay over $114 at this property and get a free airport taxi</p>
+                            <div className="hTopRight">
+                                <button>Reserve or Book Now</button>
+                            </div>
                         </div>
-                        <div className="hTopRight">
-                            <button>Reserve or Book Now</button>
+                        <div className="imageWrapper">
+                            {data.photos?.map(({ src }, idx) => (
+                                <img key={src + idx} src={src} alt="hotels" onClick={() => handleOpenModal(idx)} />
+                            ))}
                         </div>
-                    </div>
-                    <div className="imageWrapper">
-                        {photos.map(({ src }, idx) => (
-                            <img key={src + idx} src={src} alt="hotels" onClick={() => handleOpenModal(idx)} />
-                        ))}
-                    </div>
-                    <div className="hDetails">
-                        <div className="hDetilsinfo">
-                            <h2 className="hDetailsTitle">Experience World-class Service</h2>
-                            <p className='hDetailsDesc'>Located a 5-minute walk from St. Florian's Gate in Krakow, Tower
-                                Street Apartments has accommodations with air conditioning and
-                                free WiFi. The units come with hardwood floors and feature a
-                                fully equipped kitchenette with a microwave, a flat-screen TV,
-                                and a private bathroom with shower and a hairdryer. A fridge is
-                                also offered, as well as an electric tea pot and a coffee
-                                machine. Popular points of interest near the apartment include
-                                Cloth Hall, Main Market Square and Town Hall Tower. The nearest
-                                airport is John Paul II International Kraków–Balice, 16.1 km
-                                from Tower Street Apartments, and the property offers a paid
-                                airport shuttle service.</p>
-                        </div>
-                        <div className="hDetailsPrice">
-                            <h3>Prfect for a 3-night stay</h3>
-                            <p className='priceDetails'> Located in the real heart of Krakow, this property has an
-                                excellent location score of 9.8!</p>
-                            <p className='priceRoom'>$450 <span>(3 nights)</span></p>
-                            <button className="reserve">Reserve or Book Now!</button>
+                        <div className="hDetails">
+                            <div className="hDetilsinfo">
+                                <h2 className="hDetailsTitle">{data.title}</h2>
+                                <p className='hDetailsDesc'>{data.desc}</p>
+                            </div>
+                            <div className="hDetailsPrice">
+                                <h3>Prfect for a 3-night stay</h3>
+                                <p className='priceDetails'> Located in the real heart of Krakow, this property has an
+                                    excellent location score of 9.8!</p>
+                                <p className='priceRoom'>$450 <span>(3 nights)</span></p>
+                                <button className="reserve">Reserve or Book Now!</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
             </div>
             <MailList />
             <Footer />
